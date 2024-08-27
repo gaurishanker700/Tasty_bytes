@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cake from "../../assets/img/cake.jpg";
 import axios from 'axios';
 
-const AddBanner = () => {
+export default function AddBanner({ setIsActive, isActive })  {
   const [bannerUrl, setBannerUrl] = useState('');
   const [imageUrl, setImageUrl] = useState(cake);
 
@@ -30,51 +30,55 @@ const AddBanner = () => {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center min-vh-100 bg-light p-4">
-      <div className="card w-100 max-w-md p-4 shadow">
-        <h1 className="h4 text-center mb-4">Add Banner</h1>
+    <div>
+<main id="main" className={`main mainWrapper ${isActive === true && 'active'}`}>
+   
+    <div className="container mt-5 mb-5 d-flex justify-content-center align-items-center">
+      <div className="productcard">
+        <div className="productinner-card">
 
-        <div className="mb-3">
-          <label htmlFor="banner-url" className="form-label">Banner URL</label>
-          <input
-            type="text"
-            id="banner-url"
-            className="form-control"
-            placeholder="Enter banner URL"
-            value={bannerUrl}
-            onChange={(e) => setBannerUrl(e.target.value)}
-          />
-        </div>
+          <div className="d-flex justify-content-between align-items-center mt-3 px-2">
+            <h4>Add Banner</h4>
+            <span className="productheart">
+              <i className="fa fa-heart"></i>
+            </span>
+          </div>
 
-        <div className="d-grid mb-3">
-          <button
-            onClick={handleAddBanner}
-            className="btn btn-primary"
-          >
-            Submit
-          </button>
-        </div>
-
-        {imageUrl && (
-          <div className="mt-4 text-center">
-            <h5>Banner Preview</h5>
-            <img 
-              src={imageUrl} 
-              alt="Banner" 
-              className="img-fluid mt-2" 
-              style={{ maxWidth: '100%', height: 'auto' }} 
+          <div className="px-2">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter banner URL"
+              value={bannerUrl}
+              onChange={(e) => setBannerUrl(e.target.value)}
             />
-            <button
-              onClick={handleDeleteBanner}
-              className="btn btn-danger mt-2"
-            >
+          </div>
+
+          <div className="px-2 mt-3">
+            <button onClick={handleAddBanner} className="btn-product btn-primary px-3">
+              Submit
+            </button>
+            <button onClick={handleDeleteBanner} className="btn btn-outline-primary px-3">
               Delete Banner
             </button>
           </div>
-        )}
+
+          {imageUrl && (
+            <div className="mt-4 text-center px-2">
+              <h5>Banner Preview</h5>
+              <img 
+                src={imageUrl} 
+                alt="Banner Preview" 
+                className="img-fluid mt-2 rounded" 
+                style={{ maxWidth: '100%', height: 'auto' }} 
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
+    </main>
+    </div>
+    
   );
-};
-
-export default AddBanner;
+}
