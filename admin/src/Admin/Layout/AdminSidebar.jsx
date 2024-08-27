@@ -18,7 +18,24 @@ export default function AdminSidebar({ setIsActive, isActive }) {
     </Link>
   </li>
   {/* <!-- End Dashboard Nav --> */}
+{/* add banner start */}
+<li className="nav-item">
+    <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+      <i className="bi bi-menu-button-wide"></i><span>Add Banner</span><i className="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
 
+      <li>
+        <Link to="/admin/AddBanner">
+          <i className="bi bi-circle"></i><span>New banner</span>
+        </Link>
+      </li>
+     
+      
+      
+    </ul>
+  </li>
+{/* add banner end */}
   <li className="nav-item">
     <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
       <i className="bi bi-menu-button-wide"></i><span>Components</span><i className="bi bi-chevron-down ms-auto"></i>

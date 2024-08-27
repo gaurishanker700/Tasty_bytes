@@ -3,28 +3,22 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-  },
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'product',
+  name:{
+    type:String,
+    required:true
   },
   rating: {
     type: Number,
-    min: 1,
-    max: 5,
+    required: true,
   },
   comment: {
     type: String,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  status: { type: Boolean, default: 1 },
-});
+    required: true,
+  }
+
+
+
+},{timestamps:true});
 
 const Review = mongoose.model('Review', reviewSchema);
 

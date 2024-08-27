@@ -89,10 +89,10 @@ router.post("/updatetestimonialStatus",testcontroller.updatetestimonialStatus)
 // -------testimonial Router End------------
 
 // ----------Review Start---------
-router.post("/addReview",reviewcontroller.addReview)
-router.post("/updateReview",reviewcontroller.updateReview)
-router.post("/delete-Review",reviewcontroller.deleteReview)
-router.post("/get-all-Review",reviewcontroller.getallReview)
-router.post("/update-Review-Status",reviewcontroller.updateReviewStatus)
+// router.post("/addReview",reviewcontroller.addReview)
+// router.post("/updateReview",reviewcontroller.updateReview)
+// router.post("/delete-Review",reviewcontroller.deleteReview)
+// router.post("/get-all-Review",reviewcontroller.getallReview)
+// router.post("/update-Review-Status",reviewcontroller.updateReviewStatus)
 // ----------Review end---------
 module.exports=router

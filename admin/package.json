@@ -14,7 +14,7 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@mui/joy": "^5.0.0-beta.48",
-    "axios": "^1.7.3",
+    "axios": "^1.7.5",
     "file-saver": "^2.0.5",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",

@@ -12,12 +12,11 @@ export default function Footer() {
                     <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
                     <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                     <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div className="d-flex pt-2">
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-twitter"></i></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-facebook-f"></i></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-youtube"></i></a>
-                        <a className="btn btn-square btn-outline-light rounded-circle me-0" href=""><i className="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <div className="d-flex pt-2 pl-4">
+    <a className="btn btn-square btn-outline-light rounded-circle me-1" href=""><i className="fab fa-facebook-f"></i></a>
+    <a className="btn btn-square btn-outline-light rounded-circle me-0" href=""><i className="fab fa-instagram"></i></a>
+</div>
+
                 </div>
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-light mb-4">Quick Links</h4>
@@ -73,8 +72,8 @@ export default function Footer() {
                 </div>
                 <div className="col-md-6 text-center text-md-end">
 
-                    Designed By <a href="https://htmlcodex.com">Taneja</a>
-                     <br/>Distributed By: <a className="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> 
+                    Designed By <a href="https://htmlcodex.com">Shree Krishna Bakers</a>
+                     {/* <br/>Distributed By: <a className="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>  */}
                 </div>
             </div>
         </div>

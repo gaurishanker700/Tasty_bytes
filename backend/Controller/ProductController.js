@@ -14,9 +14,9 @@ function addProduct(req, res) {
   if (req.body.userId == "") {
     validation += "userId is required";
   }
-  if (req.body.new_price == "") {
-    validation += "price is required";
-  }
+  // if (req.body.new_price == "") {
+  //   validation += "price is required";
+  // }
   if (req.body.countInStock == "") {
     validation += "countInStock is required";
   }
@@ -35,8 +35,8 @@ function addProduct(req, res) {
     Productobj.productname = req.body.productname;
     Productobj.description = req.body.description;
    
-    Productobj.new_price = req.body.price;
-    Productobj.old_price = req.body.price;
+    // Productobj.new_price = req.body.price;
+ 
     Productobj.countInStock = req.body.countInStock;
     Productobj.status = req.body.status;
     if (req.file) {
@@ -138,8 +138,8 @@ updateProduct = (req, res) => {
           Productdata.productname = req.body.productname;
           Productdata.description = req.body.description;
      
-          Productdata.new_price = req.body.price;
-          Productdata.old_price = req.body.price;
+          // Productdata.new_price = req.body.price;
+          // Productdata.old_price = req.body.price;
           Productdata.countInStock = req.body.countInStock;
           Productdata.status = req.body.status;
          

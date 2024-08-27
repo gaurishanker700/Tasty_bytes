@@ -20,6 +20,7 @@ import ManageContact from './Admin/Pages/ManageContacts';
 import UpdateUser from './Admin/Pages/Create_user/Updateuser';
 import Updateproduct from './Admin/Pages/product/Update_product';
 import AdminHeader from './Admin/Layout/AdminHeader';
+import AddBanner from './Components/Addbanner';
 
 function App() {
   const [isActive, setIsActive] = useState(false);
@@ -28,9 +29,10 @@ function App() {
       <Router>
   <Routes>
      <Route path="/" element={<Login />} /> 
-    <Route path="/admin" element={<AdminMaster isActive={isActive} setIsActive={setIsActive} />}>
+    <Route path="/" element={<AdminMaster isActive={isActive} setIsActive={setIsActive} />}>
       <Route path="/admin" element={<AdminDashboard isActive={isActive} setIsActive={setIsActive} />} />
       <Route path="/admin/card-page" element={<CardPage isActive={isActive} setIsActive={setIsActive} />} />
+      <Route path="/admin/Addbanner" element={<AddBanner isActive={isActive} setIsActive={setIsActive} />} />
       <Route path="/admin/create-user" element={<Create_user isActive={isActive} setIsActive={setIsActive} />} />
       <Route path="/admin/create-product" element={<Addproduct isActive={isActive} setIsActive={setIsActive} />} />
       <Route path="/admin/tab" element={<Tab isActive={isActive} setIsActive={setIsActive} />} />

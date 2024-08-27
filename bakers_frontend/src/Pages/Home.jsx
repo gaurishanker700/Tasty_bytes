@@ -2,10 +2,34 @@ import React, { useEffect, useState } from "react";
 import apiServices, { BASE_URL_IMG } from '../ApiServices/ApiServices'
 import { toast, ToastContainer } from 'react-toastify'
 import { Link } from "react-router-dom";
+import axios from "axios";
+import cake from "../photo/cake.jpg"
 export default function Home() {
 
         const [product, setProduct] = useState([]);
         const [loading, setLoading] = useState(true);
+        const [url,setUrl]=useState(cake)
+        useEffect(()=>{
+            const getbanner= async ()=>{
+                try {
+                    const res = (await axios.get("http://localhost:5000/banner/showbanner"))
+                    setUrl(res)
+                    
+                    
+                } catch (error) {
+                    console.log(error,"error in banner")
+                }
+            
+            }
+            getbanner()
+
+
+        },[])
+        console.log("Data response",url)
+
+        
+
+
         useEffect(() => {
           setTimeout(() => {
               setLoading(false);
@@ -50,7 +74,8 @@ export default function Home() {
         </div>
     </div> */}
     {/* {/* <!-- Carousel End --> */}
-    <div className="container-fluid bg-dark text-white py-5 hero" >
+    <div className="container-fluid bg-dark text-white py-5 bg-center bg-cover bg-no-repeat  " style={{ backgroundImage: `url(${url.data})` }}>
+        
       <div className="container text-center py-5 heroinside">
         {/* <p className="text-warning text-uppercase mb-3">// The Best Bakery</p> */}
         <h1 className="display-4 fw-bold mb-4 text-white">We Bake With Passion</h1>
