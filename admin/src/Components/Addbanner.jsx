@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import cake from "../../assets/img/cake.jpg";
 import axios from 'axios';
 
-export default function AddBanner({ setIsActive, isActive })  {
+
+export default function AddBanner({ setIsActive, isActive }) {
   const [bannerUrl, setBannerUrl] = useState('');
   const [imageUrl, setImageUrl] = useState(cake);
 
@@ -31,54 +32,43 @@ export default function AddBanner({ setIsActive, isActive })  {
 
   return (
     <div>
-<main id="main" className={`main mainWrapper ${isActive === true && 'active'}`}>
-   
-    <div className="container mt-5 mb-5 d-flex justify-content-center align-items-center">
-      <div className="productcard">
-        <div className="productinner-card">
-
-          <div className="d-flex justify-content-between align-items-center mt-3 px-2">
-            <h4>Add Banner</h4>
-            <span className="productheart">
-              <i className="fa fa-heart"></i>
-            </span>
-          </div>
-
-          <div className="px-2">
+   <main id="main" className={`main mainWrapper ${isActive === true && 'active'}`} style={{ minHeight: '100vh', background: 'linear-gradient(130deg, #6a11cb 0%, #2575fc 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="card shadow-lg border-0 rounded-lg text-center" style={{ width: '400px', padding: '20px', backgroundColor: '#fff', borderRadius: '20px' }}>
+          <h3 className="card-title mb-3">Add Banner</h3>
+          
+          <div className="form-group mb-4">
             <input
               type="text"
               className="form-control"
               placeholder="Enter banner URL"
               value={bannerUrl}
               onChange={(e) => setBannerUrl(e.target.value)}
+              style={{ padding: '10px', borderRadius: '8px' }}
             />
           </div>
 
-          <div className="px-2 mt-3">
-            <button onClick={handleAddBanner} className="btn-product btn-primary px-3">
+          <div className="d-flex justify-content-around mb-4">
+            <button onClick={handleAddBanner} className="btn btn-primary" style={{ backgroundColor: '#ff4d4d', borderColor: '#ff4d4d', padding: '10px 20px', borderRadius: '8px' }}>
               Submit
             </button>
-            <button onClick={handleDeleteBanner} className="btn btn-outline-primary px-3">
-              Delete Banner
+            <button onClick={handleDeleteBanner} className="btn btn-outline-primary" style={{ padding: '10px 20px', borderRadius: '8px' }}>
+              Delete
             </button>
           </div>
 
           {imageUrl && (
-            <div className="mt-4 text-center px-2">
-              <h5>Banner Preview</h5>
+            <div className="text-center">
+              <h5 className="mb-3">Banner Preview</h5>
               <img 
                 src={imageUrl} 
                 alt="Banner Preview" 
-                className="img-fluid mt-2 rounded" 
-                style={{ maxWidth: '100%', height: 'auto' }} 
+                className="img-fluid rounded shadow-sm" 
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '10px', transition: 'transform 0.3s', transform: 'scale(1.05)' }} 
               />
             </div>
           )}
         </div>
-      </div>
+      </main>
     </div>
-    </main>
-    </div>
-    
   );
 }

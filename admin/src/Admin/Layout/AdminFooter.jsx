@@ -11,7 +11,7 @@ export default function AdminFooter({ setIsActive, isActive }) {
     </div>
     <div className="credits">
     
-      Designed by <a href="#" className='px-1'>  Backers</a>
+      Designed by <a href="#" className='px-1'>  ShreeKrishna Bakers</a>
     </div>
   </footer>
   {/* <!-- End Footer --> */}

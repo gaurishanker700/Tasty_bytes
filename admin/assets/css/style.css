@@ -1238,3 +1238,28 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-container .pagination {
+  background: linear-gradient(135deg, #ffcc00, #f06);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.pagination-container .pagination .page-item {
+  margin: 0 5px;
+}
+
+.pagination-container .pagination .page-link {
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.pagination-container .pagination .page-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
