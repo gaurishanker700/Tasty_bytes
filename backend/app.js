@@ -24,7 +24,7 @@
 // const storage = multer.diskStorage({
 //     destination: './upload/images',
 //     filename:(req,file,cb)=>{
-//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//         return cb(null, ${file.fieldname}_${Date.now()}${path.extname(file.originalname)})
 //     }
 // })
 
@@ -37,7 +37,7 @@
 // app.post("/upload",upload.single('product'),(req, res)=>{
 //     res.json({
 //         success:1,
-//         image_url: `http://localhost:${port}/images/${req.file.filename}`
+//         image_url: http://localhost:${port}/images/${req.file.filename}
 //     })
 // })
 
@@ -283,25 +283,25 @@
 
 
 const express = require("express")
-const app=express()
-const port=5000
-const db=require("./config/db")
+const app = express()
+const port = 5000
+const db = require("./config/db")
 
-const cors= require("cors")
+const cors = require("cors")
 app.use(cors())
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json({ limit: '50mb' }))
+app.use(express.static(__dirname + "/public"))
 
-
-
-app.use(express.urlencoded({extended:true}))
-app.use(express.json({limit:'50mb'}))
-app.use(express.static(__dirname+("/public")))
-const adminroutes=require("./routes/adminroutes")
+const adminroutes = require("./routes/adminroutes")
+const bannerRoutes = require("./routes/bannerRoute")
 app.use("/admin", adminroutes)
+app.use("/banner", bannerRoutes)
 
-const seeder=require('./config/seeder')
+const seeder = require('./config/seeder')
 seeder.adminseeder()
 
-app.listen(port,()=>(
-    console.log(`Server is running on ${port}`)
-))
+app.listen(port, () => {
+    console.log(`Server is running on ${port}`);
+});
