@@ -1,73 +1,53 @@
 const Contact = require("../Model/Contactmodel")
 
-contact = (req, res) => {
-    
-    let validation = ""
-    if (req.body.name == "") {
-        validation += "Enter Name"
-    }
-    if (req.body.email == "") {
-        validation += "Enter Email"
-    }
-    if (req.body.subject == "") {
-        validation += "Enter Subject"
-    } 
-    if (req.body.contact == "") {
-        validation += "Enter Contact"
-    } 
-    if (req.body.message == "") {
-        validation += "Enter Message"
-    } 
-    if (req.body.subject == "") {
-        validation += "Enter Subject"
-    }
-    if (!!validation) {
-        res.json({
-            status: 400,
-            success: false,
-            msg: validation
-        })
-    }
-    else{
-        let contactobj=new Contact
-        contactobj.name=req.body.name
-        contactobj.subject=req.body.subject
-        contactobj.email=req.body.email
-        contactobj.message=req.body.message
-        contactobj.contact=req.body.contact
-        contactobj.user_type=2
-        contactobj.save()
-        res.json({
-            status:200,
-                    success:true,
-                    msg:"Message Delivered",
-                    data:req.body
-        })
-    }
-    
-}
+const contact = async (req, res) => {
+  try {
+    const { name, email, phone, query } = req.body;
+    console.log('Received contact request:', { name, email, phone, query }); // Debug log
 
-getallcontacts = (req,res)=>{
-  
-    Contact.find(req.body)
-    .exec()
-    .then(contactdata=>{
-        res.json({
-            'status':200,
-            'success':true,
-            'msg':'data loaded',
-            'data':contactdata
-        })
+    if (!name || !email || !phone || !query) {
+      return res.status(400).json({ "error": "Please fill in all fields" });
+    }
+
+    // Creating contact entry in the database
+    const contacts = await Contact.create({ 
+      name,
+      email,
+      phone,
+      query
+    });
+
+    console.log('Contact created successfully:', contacts); // Success log
+    res.status(201).json({ 
+      success: true,
+      message: "Contact created successfully",
+      contacts
+    });
+
+  } catch (error) {
+    console.error('Error creating contact:', error); // Error log
+    res.status(500).json({ "error": "Internal Server Error" });
+  }
+};
+
+
+const getallcontacts = async(req,res)=>{
+  try {
+    
+    const contacts = await Contact.find();
+    res.status(200).json({
+      success: true,
+      contacts,
+      msg:"all contacts"
     })
-    .catch(err=>{
-        res.json({
-            status:500,
-            success:false,
-            msg : 'Error Occur',
-            error : String(err)
-        })
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      msg:"Internal Server Error"
     })
     
+  }
 }
 
 getsinglecontacts = (req,res)=>{
