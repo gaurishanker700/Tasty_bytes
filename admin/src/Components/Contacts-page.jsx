@@ -36,7 +36,7 @@ export default function Contacts({ setIsActive, isActive }) {
           <div className="info-box card">
             <i className="bi bi-telephone"></i>
             <h3>Call Us</h3>
-            <p>+1 5589 55488 55<br/>+1 6678 254445 41</p>
+            <p>+1 5589 55488 55<br/>+1 6678 25444 41</p>
           </div>
         </div>
         <div className="col-lg-6">
